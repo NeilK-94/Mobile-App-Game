@@ -5,7 +5,12 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rb;
+    private bool grounded;
 
+    public Transform groundCheck;
+    public LayerMask whatIsGround;
+
+    public float groundCheckRadius;
     public float moveSpeed;
     public float jumpHeight;
     
@@ -17,12 +22,18 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-
+        //  Set grounded equal to whether this is true or not
+        grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
     }
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space)) //  Check if space bar is pressed
+        Move();
+    }
+
+    public void Move()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && grounded) //  Check if space bar is pressed
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpHeight);
         }
