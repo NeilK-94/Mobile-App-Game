@@ -733,7 +733,7 @@ GameObject:
   m_Layer: 0
   m_Name: Ground Check
   m_TagString: Untagged
-  m_Icon: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1656,6 +1656,7 @@ GameObject:
   - component: {fileID: 2090221714}
   - component: {fileID: 2090221716}
   - component: {fileID: 2090221715}
+  - component: {fileID: 2090221717}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1792,6 +1793,25 @@ MonoBehaviour:
   groundCheckRadius: 0.1
   moveSpeed: 3
   jumpHeight: 30
+--- !u!95 &2090221717
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2090221711}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5a8f1b3485983ff459ea0b3331c59b36, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &8259350946078122804
 PrefabInstance:
   m_ObjectHideFlags: 0
