@@ -8,11 +8,13 @@ public class PlayerController : MonoBehaviour
     
     private Scene currentScene;
     private Rigidbody2D rb;
+    private Animator playerAnimation;
     private bool grounded;
+    private float movement = 0.0f;
+
 
     public Transform groundCheck;
     public LayerMask whatIsGround;
-
     public float groundCheckRadius;
     public float moveSpeed;
     public float jumpHeight;
@@ -21,34 +23,38 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();   //  Reference to the rigidbody2d component
+        playerAnimation = GetComponent<Animator>(); //  Reference to the animator component
     }
 
     private void FixedUpdate()
     {
         //  Set grounded equal to whether this is true or not
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
-    }
 
-    void Update()
-    {
         Move();
         ReloadScene();
+        PlayerAnimator();
     }
 
     public void Move()
     {
+        movement = Input.GetAxis("Horizontal");
+
         if (Input.GetKeyDown(KeyCode.Space) && grounded) //  Check if space bar is pressed
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpHeight);
         }
 
-        if (Input.GetKey(KeyCode.D)) //  Check if space bar is pressed
+        if (movement > 0.0f)
         {
             rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
+            transform.localScale = new Vector2(1f, 1f); //  If moving right set local scale to 1 (its default)
         }
-        if (Input.GetKey(KeyCode.A)) //  Check if space bar is pressed
+        
+        else if (movement < 0.0f)
         {
             rb.velocity = new Vector2(-moveSpeed, rb.velocity.y);
+            transform.localScale = new Vector2(-1f, 1f);    //  If moving left change the scale on the x axis to it's opposite thus flipping the sprite
         }
     }
 
@@ -62,5 +68,11 @@ public class PlayerController : MonoBehaviour
             Debug.Log(currentScene.name);
         }
 
+    }
+
+    public void PlayerAnimator()
+    {
+        playerAnimation.SetFloat("Speed", Mathf.Abs(rb.velocity.x));    //  Keep speed value positive so the player walk animation keeps playing whe walking left
+        playerAnimation.SetBool("OnGround", grounded);
     }
 }
