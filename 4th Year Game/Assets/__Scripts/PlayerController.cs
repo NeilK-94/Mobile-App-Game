@@ -56,6 +56,10 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(-moveSpeed, rb.velocity.y);
             transform.localScale = new Vector2(-1f, 1f);    //  If moving left change the scale on the x axis to it's opposite thus flipping the sprite
         }
+        else
+        {
+            rb.velocity = new Vector2(0f, rb.velocity.y);
+        }
     }
 
     public void ReloadScene()
