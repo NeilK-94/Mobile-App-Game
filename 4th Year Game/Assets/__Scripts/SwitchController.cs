@@ -11,7 +11,7 @@ public class SwitchController : MonoBehaviour
     private Renderer rend;
 
     [SerializeField]
-    private Color colorToTurnTo = Color.white;
+    private Color colorToTurnTo;
 
     void Start()
     {
