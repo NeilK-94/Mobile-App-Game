@@ -6,26 +6,28 @@ public class SwitchController : MonoBehaviour
 {
     public Collider2D switchCollider;
     public Rigidbody2D player;
+    public GameObject plat1;
+
+    private Renderer rend;
+
+    [SerializeField]
+    private Color colorToTurnTo = Color.white;
 
     void Start()
     {
         switchCollider = GetComponent<Collider2D>();
+        rend = GetComponent<Renderer>();
     }
 
-    private void OnTriggerStay2D(Collider2D col)
+    public void OnTriggerStay2D(Collider2D col)
     {
-        // var player = col.GetComponent<PlayerController>();
-        var actionBtn = PlayerController.action;
-        if (player)
+        if (player) //  If it's the player in the collider trigger
         {
-            Debug.Log("Collided");
-
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E))    //If the player presses 'E' 
             {
-                actionBtn = true;
-                Debug.Log("Action Pressed");
+                Destroy(plat1); //  Destroy the platform
+                rend.material.color = colorToTurnTo;
             }
-
         }
     }
 }
