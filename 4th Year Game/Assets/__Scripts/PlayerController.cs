@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour
     public float groundCheckRadius;
     public float moveSpeed;
     public float jumpHeight;
+
+    public static bool action = false;
     
 
     void Start()
@@ -57,8 +59,9 @@ public class PlayerController : MonoBehaviour
             transform.localScale = new Vector2(-1f, 1f);    //  If moving left change the scale on the x axis to it's opposite thus flipping the sprite
         }
         else
-        {
-            rb.velocity = new Vector2(0f, rb.velocity.y);
+        { 
+            rb.velocity = new Vector2(0f, rb.velocity.y);   //  Sets player horizontal movement to 0, this prevents sliding
+
         }
     }
 
