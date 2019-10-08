@@ -9,6 +9,7 @@ TagManager:
   - plat3
   - greenBlock
   - redBlock
+  - blueBlock
   layers:
   - Default
   - TransparentFX

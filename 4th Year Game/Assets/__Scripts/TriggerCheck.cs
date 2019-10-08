@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -16,17 +17,69 @@ public class TriggerCheck : MonoBehaviour
     }
     public void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag=="greenBlock")    //  If the tag of the colliding object is greenBlock
+        //  Check what tag has entered what trigger
+        //  If green tag enters green trigger run:
+        if (trigCol.name == "Green Trigger")
         {
-            Debug.Log("Green block");
-            //  Code here to finish level
+            if (collision.CompareTag("greenBlock"))    //  If the tag of the colliding object is greenBlock
+            {
+                Debug.Log("Inside green trigger. This is the " + collision.tag + " tag");
+                GreenBlock();
+            }
+            else if (collision.tag != "greenBlock")
+            {
+                Debug.Log("Incorrect block!");
+                currentScene = SceneManager.GetActiveScene();
+                SceneManager.LoadScene(currentScene.name);
+            }
+            else
+            {
+                Debug.Log("Broken");
+            }
         }
-        else   //   Else reload the scene
+        else if (trigCol.name == "Red Trigger")
         {
-            Debug.Log("Not green block");
+            if (collision.CompareTag("redBlock"))    //  If the tag of the colliding object is greenBlock
+            {
+                Debug.Log("Inside red trigger. This is the " + collision.tag + " tag");
+                RedBlock();
+            }
+            else if (collision.tag != "redBlock")
+            {
+                Debug.Log("Incorrect block!");
+                currentScene = SceneManager.GetActiveScene();
+                SceneManager.LoadScene(currentScene.name);
+            }
+        }
+        else if (trigCol.name == "Blue Trigger")
+        {
+            if (collision.CompareTag("blueBlock"))    //  If the tag of the colliding object is greenBlock
+            {
+                Debug.Log("Inside blue trigger. This is the " + collision.tag + " tag");
+                BlueBlock();
+            }
+            else if (collision.tag != "blueBlock")
+            {
+                Debug.Log("Incorrect block!");
+                currentScene = SceneManager.GetActiveScene();
+                SceneManager.LoadScene(currentScene.name);
+            }
+        }
 
-            currentScene = SceneManager.GetActiveScene();
-            SceneManager.LoadScene(currentScene.name);
-        }
+    }
+
+    private void BlueBlock()
+    {
+        //  correct
+    }
+
+    private void RedBlock()
+    {
+        //  correct box, level2/3 complete
+    }
+
+    private void GreenBlock()
+    {
+        //  correct box, level1/3 complete
     }
 }
