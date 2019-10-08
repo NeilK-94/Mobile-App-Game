@@ -7,6 +7,8 @@ TagManager:
   - plat1
   - plat2
   - plat3
+  - greenBlock
+  - redBlock
   layers:
   - Default
   - TransparentFX
