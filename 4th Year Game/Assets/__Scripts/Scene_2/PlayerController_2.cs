@@ -7,9 +7,6 @@ public class PlayerController_2 : MonoBehaviour
 
     private Rigidbody2D rb;
 
-    private float movementHorizontal = 0.0f;
-    private float movementVertical= 0.0f;
-
     Vector2 movement;
 
     public float moveSpeed = 5f;
@@ -33,21 +30,21 @@ public class PlayerController_2 : MonoBehaviour
 
         rb.MovePosition(rb.position + movement * moveSpeed * Time.deltaTime);
 
-        if(movement.x < 0.0f)
+        if(movement.x < 0.0f)   //  Left
         {
             transform.rotation = Quaternion.Euler(Vector3.forward * -90);
         }
-        else if(movement.x > 0.0f)
+        else if(movement.x > 0.0f)  //  Right
         {
             transform.eulerAngles = Vector3.forward * 90;
         }
 
-        if (movement.y < 0.0f)
+        if (movement.y < 0.0f)  //  Down
         {
             transform.eulerAngles = Vector3.forward * 0;
             transform.localScale = new Vector2(1f, 1f);
         }
-        else if (movement.y > 0.0f)
+        else if (movement.y > 0.0f) //  Up
         {
             transform.eulerAngles = Vector3.forward * 0;
             transform.localScale = new Vector2(1f, -1f);
