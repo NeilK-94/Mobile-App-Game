@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController_2 : MonoBehaviour
 {
 
     private Rigidbody2D rb;
+    private Scene currentScene;
 
     Vector2 movement;
 
@@ -20,6 +22,7 @@ public class PlayerController_2 : MonoBehaviour
     void FixedUpdate()
     {
         Move();
+        ReloadScene();
     }
 
     public void Move()
@@ -89,6 +92,18 @@ public class PlayerController_2 : MonoBehaviour
 
         //}
 
+
+    }
+
+    public void ReloadScene()
+    {
+        currentScene = SceneManager.GetActiveScene();   //  Sets current scene equal to the active scene
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(currentScene.name);  //  loads currentScene
+            Debug.Log(currentScene.name);
+        }
 
     }
 }

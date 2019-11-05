@@ -38,10 +38,10 @@ public class Boundaries : MonoBehaviour
         // find the position of X and clamp
         // find the position of Y and clamp
         viewPos.x = Mathf.Clamp(viewPos.x,
-                                screenBound.x * -1 + width,
+                                screenBound.x * -1 + (width * 0.4f),
                                 screenBound.x - width);
         viewPos.y = Mathf.Clamp(viewPos.y,
-                                screenBound.y * -1 + (width * 0.8f),
+                                screenBound.y * -1 + (width * 0.4f),
                                 screenBound.y - height);
 
         transform.position = viewPos;
