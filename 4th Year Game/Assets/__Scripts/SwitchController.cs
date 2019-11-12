@@ -13,6 +13,9 @@ public class SwitchController : MonoBehaviour
     [SerializeField]
     private Color colorToTurnTo;
 
+    [SerializeField]
+    private AudioSource actionSound;
+
     void Start()
     {
         switchCollider = GetComponent<Collider2D>();
@@ -27,6 +30,7 @@ public class SwitchController : MonoBehaviour
             {
                 Destroy(plat1); //  Destroy the platform
                 rend.material.color = colorToTurnTo;
+                actionSound.Play();
             }
         }
     }

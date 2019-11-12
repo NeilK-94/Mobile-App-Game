@@ -216,3 +216,4 @@ MonoBehaviour:
   groundCheckRadius: 0.1
   moveSpeed: 5
   jumpHeight: 17
+  jumpSound: {fileID: 0}

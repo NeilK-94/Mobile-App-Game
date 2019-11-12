@@ -24,7 +24,7 @@ public class Boundaries : MonoBehaviour
                                 new Vector3(Screen.width,
                                             Screen.height,
                                             mainCamera.transform.position.z));
-        Debug.Log("Screen width = " + screenBound.x);
+
         width = gameObject.GetComponent<SpriteRenderer>().bounds.extents.x;
         height = gameObject.GetComponent<SpriteRenderer>().bounds.extents.y;
     }

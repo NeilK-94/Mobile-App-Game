@@ -11,6 +11,9 @@ public class TriggerCheck : MonoBehaviour
 
     private Scene currentScene;
 
+    [SerializeField]
+    private AudioSource wrongSound, correctSound;
+
     public void Start()
     {
         trigCol = GetComponent<Collider2D>();
@@ -25,10 +28,13 @@ public class TriggerCheck : MonoBehaviour
             {
                 Debug.Log("Inside green trigger. This is the " + collision.tag + " tag");
                 GreenBlock();
+                correctSound.Play();
+
             }
             else if (collision.tag != "greenBlock")
             {
                 Debug.Log("Incorrect block!");
+                wrongSound.Play();
                 currentScene = SceneManager.GetActiveScene();
                 SceneManager.LoadScene(currentScene.name);
             }
@@ -43,10 +49,12 @@ public class TriggerCheck : MonoBehaviour
             {
                 Debug.Log("Inside red trigger. This is the " + collision.tag + " tag");
                 RedBlock();
+                correctSound.Play();
             }
             else if (collision.tag != "redBlock")
             {
                 Debug.Log("Incorrect block!");
+                wrongSound.Play();
                 currentScene = SceneManager.GetActiveScene();
                 SceneManager.LoadScene(currentScene.name);
             }
@@ -57,10 +65,13 @@ public class TriggerCheck : MonoBehaviour
             {
                 Debug.Log("Inside blue trigger. This is the " + collision.tag + " tag");
                 BlueBlock();
+                correctSound.Play();
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
             else if (collision.tag != "blueBlock")
             {
                 Debug.Log("Incorrect block!");
+                wrongSound.Play();
                 currentScene = SceneManager.GetActiveScene();
                 SceneManager.LoadScene(currentScene.name);
             }

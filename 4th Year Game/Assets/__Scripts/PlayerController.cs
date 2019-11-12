@@ -12,12 +12,14 @@ public class PlayerController : MonoBehaviour
     private bool grounded;
     private float movement = 0.0f;
 
-
     public Transform groundCheck;
     public LayerMask whatIsGround;
     public float groundCheckRadius;
     public float moveSpeed;
     public float jumpHeight;
+
+    [SerializeField]
+    private AudioSource jumpSound;
 
     public static bool action = false;
     
@@ -45,6 +47,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && grounded) //  Check if space bar is pressed
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpHeight);
+            jumpSound.Play();
         }
 
         if (movement > 0.0f)
