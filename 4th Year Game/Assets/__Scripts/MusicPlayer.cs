@@ -19,7 +19,7 @@ public class MusicPlayer : MonoBehaviour
         //  destroy the one just created
         //  FindObjectOfType()
 
-        if(FindObjectsOfType<MusicPlayer>().Length < 1)
+        if(FindObjectsOfType<MusicPlayer>().Length > 1)
         {
             Destroy(gameObject);
         }

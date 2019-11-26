@@ -8,17 +8,18 @@ public class TriggerCheck : MonoBehaviour
 {
     //public GameObject block1;
     public Collider2D trigCol;
+    public GameObject platform;
+    public Transform spawnpointGreen;
+    public Transform spawnpointRed;
+    public Transform spawnpointBlue;
+    public Renderer platRenderer;
 
     private Scene currentScene;
 
     [SerializeField]
     private AudioSource wrongSound, correctSound;
 
-    public void Start()
-    {
-        trigCol = GetComponent<Collider2D>();
-    }
-    public void OnTriggerStay2D(Collider2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
         //  Check what tag has entered what trigger
         //  If green tag enters green trigger run:
@@ -28,7 +29,7 @@ public class TriggerCheck : MonoBehaviour
             {
                 Debug.Log("Inside green trigger. This is the " + collision.tag + " tag");
                 GreenBlock();
-                correctSound.Play();
+                
 
             }
             else if (collision.tag != "greenBlock")
@@ -49,7 +50,7 @@ public class TriggerCheck : MonoBehaviour
             {
                 Debug.Log("Inside red trigger. This is the " + collision.tag + " tag");
                 RedBlock();
-                correctSound.Play();
+                
             }
             else if (collision.tag != "redBlock")
             {
@@ -65,8 +66,6 @@ public class TriggerCheck : MonoBehaviour
             {
                 Debug.Log("Inside blue trigger. This is the " + collision.tag + " tag");
                 BlueBlock();
-                correctSound.Play();
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
             else if (collision.tag != "blueBlock")
             {
@@ -82,15 +81,28 @@ public class TriggerCheck : MonoBehaviour
     private void BlueBlock()
     {
         //  correct
+        correctSound.Play();
+        //platform = Instantiate(platform, spawnpointBlue.position, Quaternion.identity);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
     }
 
     private void RedBlock()
     {
         //  correct box, level2/3 complete
+        platform = Instantiate(platform, spawnpointRed.position, Quaternion.identity);
+        correctSound.Play();
     }
 
     private void GreenBlock()
     {
         //  correct box, level1/3 complete
+        platform = Instantiate(platform, spawnpointGreen.position, Quaternion.identity);
+        //  Set boxRenderer to be the Renderer component of the instantiated box
+        //platform.transform.localScale = new Vector3(.75f, 0, 0);
+        //platRenderer = platform.GetComponent<Renderer>(); //  box.tranform
+        //platRenderer.material.color = Color.green;
+
+        correctSound.Play();
     }
 }
