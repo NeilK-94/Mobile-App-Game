@@ -374,7 +374,7 @@ PrefabInstance:
     - target: {fileID: 8259350945849083752, guid: 37054d259bfb14a4485c26ef1fabaf9f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.63
+      value: -7.67
       objectReference: {fileID: 0}
     - target: {fileID: 8259350945849083752, guid: 37054d259bfb14a4485c26ef1fabaf9f,
         type: 3}
@@ -2701,12 +2701,12 @@ PrefabInstance:
     - target: {fileID: 2493846781849789746, guid: e75994a93d715c7429c92a7b09483903,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.001196
+      value: -7.95
       objectReference: {fileID: 0}
     - target: {fileID: 2493846781849789746, guid: e75994a93d715c7429c92a7b09483903,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.717803
+      value: -4.65
       objectReference: {fileID: 0}
     - target: {fileID: 2493846781849789746, guid: e75994a93d715c7429c92a7b09483903,
         type: 3}
@@ -4204,12 +4204,12 @@ PrefabInstance:
     - target: {fileID: 2493846781849789746, guid: e75994a93d715c7429c92a7b09483903,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.48
+      value: -3.55
       objectReference: {fileID: 0}
     - target: {fileID: 2493846781849789746, guid: e75994a93d715c7429c92a7b09483903,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.9
+      value: -4.78
       objectReference: {fileID: 0}
     - target: {fileID: 2493846781849789746, guid: e75994a93d715c7429c92a7b09483903,
         type: 3}
@@ -4219,22 +4219,22 @@ PrefabInstance:
     - target: {fileID: 2493846781849789746, guid: e75994a93d715c7429c92a7b09483903,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2493846781849789746, guid: e75994a93d715c7429c92a7b09483903,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2493846781849789746, guid: e75994a93d715c7429c92a7b09483903,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.048311327
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2493846781849789746, guid: e75994a93d715c7429c92a7b09483903,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9988324
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2493846781849789746, guid: e75994a93d715c7429c92a7b09483903,
         type: 3}
@@ -4254,7 +4254,7 @@ PrefabInstance:
     - target: {fileID: 2493846781849789746, guid: e75994a93d715c7429c92a7b09483903,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -5.538
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2493846781849789746, guid: e75994a93d715c7429c92a7b09483903,
         type: 3}
@@ -4677,6 +4677,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sounds
       objectReference: {fileID: 0}
+    - target: {fileID: 7566609444531457621, guid: 79b276aeb44a85945b1d596619b16ed1,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 9f8953c79366a8c4db18bbfc0356a230,
+        type: 2}
+    - target: {fileID: 7566609444420091213, guid: 79b276aeb44a85945b1d596619b16ed1,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 9f8953c79366a8c4db18bbfc0356a230,
+        type: 2}
+    - target: {fileID: 7566609444931423863, guid: 79b276aeb44a85945b1d596619b16ed1,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 9f8953c79366a8c4db18bbfc0356a230,
+        type: 2}
+    - target: {fileID: 7566609444826494233, guid: 79b276aeb44a85945b1d596619b16ed1,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 9f8953c79366a8c4db18bbfc0356a230,
+        type: 2}
     - target: {fileID: 7566609444209780230, guid: 79b276aeb44a85945b1d596619b16ed1,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -6,28 +6,42 @@ using UnityEngine.UI;
 
 public class SettingsMenu : MonoBehaviour
 {
-    public AudioMixer audioMixer;
+    public AudioMixer soundTrack;
+    public AudioMixer soundEffects;
     public Toggle toggle;
 
     public static bool isMuted = false;
-
     private float mute = 0f;
 
     public void SetVolume(float vol)
     {
-        audioMixer.SetFloat("Volume", vol);
+        soundTrack.SetFloat("Volume", vol);
     }
 
     public void MuteVolume(float vol)
     {
         if (isMuted == false)    //  if the audio is not muted, mute it
         {
-            audioMixer.SetFloat("Volume", -40f);
+            soundTrack.SetFloat("Volume", -60f);
             isMuted = true;
         }
         else
         {
-            audioMixer.SetFloat("Volume", vol);
+            soundTrack.SetFloat("Volume", vol);
+            isMuted = false;
+        }
+    }
+
+    public void MuteAffects(float vol)
+    {
+        if (isMuted == false)    //  if the audio is not muted, mute it
+        {
+            soundEffects.SetFloat("effectVolume", -60f);
+            isMuted = true;
+        }
+        else
+        {
+            soundEffects.SetFloat("effectVolume", vol);
             isMuted = false;
         }
     }

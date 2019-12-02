@@ -44,6 +44,6 @@ public class PauseMenu : MonoBehaviour
     {
         Debug.Log("To main menu");
         SceneManager.LoadScene("Menu");
-
+        //  Cancel audio to avoid overlapping 
     }
 }

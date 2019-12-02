@@ -9,8 +9,10 @@ public class TriggerCheck : MonoBehaviour
     //public GameObject block1;
     public Collider2D trigCol;
     public GameObject platform;
-    public Transform spawnpointGreen;
-    public Transform spawnpointRed;
+    public Transform spawnPointYellow;
+    public Transform spawnPointYellow1;
+    public Transform spawnPointGreen;
+    public Transform spawnPointRed;
     public Transform spawnpointBlue;
     public Renderer platRenderer;
 
@@ -29,8 +31,6 @@ public class TriggerCheck : MonoBehaviour
             {
                 Debug.Log("Inside green trigger. This is the " + collision.tag + " tag");
                 GreenBlock();
-                
-
             }
             else if (collision.tag != "greenBlock")
             {
@@ -49,8 +49,7 @@ public class TriggerCheck : MonoBehaviour
             if (collision.CompareTag("redBlock"))    //  If the tag of the colliding object is greenBlock
             {
                 Debug.Log("Inside red trigger. This is the " + collision.tag + " tag");
-                RedBlock();
-                
+                RedBlock();    
             }
             else if (collision.tag != "redBlock")
             {
@@ -75,12 +74,35 @@ public class TriggerCheck : MonoBehaviour
                 SceneManager.LoadScene(currentScene.name);
             }
         }
+        else if (trigCol.name == "Yellow Trigger")
+        {   //  && not working. Could spawn each platform as each box goes in
+            if (collision.CompareTag("greenBlock"))
+            {
+                Debug.Log("Inside yellow trigger. This is the " + collision.tag + " tag");
+                platform = Instantiate(platform, spawnPointYellow.position, Quaternion.identity);
+                correctSound.Play();
+
+            }
+            else if (collision.CompareTag("redBlock"))
+            {
+                Debug.Log("Inside yellow trigger. This is the " + collision.tag + " tag");
+                platform = Instantiate(platform, spawnPointYellow1.position, Quaternion.identity);
+                correctSound.Play();
+            }
+            else if (collision.tag == "blueBlock")
+            {
+                Debug.Log("Incorrect block!");
+                wrongSound.Play();
+                currentScene = SceneManager.GetActiveScene();
+                SceneManager.LoadScene(currentScene.name);
+            }
+        }
+
 
     }
 
     private void BlueBlock()
     {
-        //  correct
         correctSound.Play();
         //platform = Instantiate(platform, spawnpointBlue.position, Quaternion.identity);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -90,14 +112,14 @@ public class TriggerCheck : MonoBehaviour
     private void RedBlock()
     {
         //  correct box, level2/3 complete
-        platform = Instantiate(platform, spawnpointRed.position, Quaternion.identity);
+        platform = Instantiate(platform, spawnPointRed.position, Quaternion.Euler(0, 0, -2));
         correctSound.Play();
     }
 
     private void GreenBlock()
     {
         //  correct box, level1/3 complete
-        platform = Instantiate(platform, spawnpointGreen.position, Quaternion.identity);
+        platform = Instantiate(platform, spawnPointGreen.position, Quaternion.Euler(0, 0, -2));
         //  Set boxRenderer to be the Renderer component of the instantiated box
         //platform.transform.localScale = new Vector3(.75f, 0, 0);
         //platRenderer = platform.GetComponent<Renderer>(); //  box.tranform
