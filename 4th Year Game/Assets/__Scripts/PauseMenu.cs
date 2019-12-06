@@ -35,8 +35,8 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
-        pauseMenuUI.SetActive(false);    //  Enable the pause menu
-        Time.timeScale = 1f;    //  Pause time
+        pauseMenuUI.SetActive(false);    //  Disable the pause menu
+        Time.timeScale = 1f;    //  Reset time to normal
         isPaused = false;
     }
 
