@@ -1,13 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/*
+ * This script creates the music player game object as a singleton. It will persist across all scenes
+ * We use the Awake method to initialise before the start function.  The loading of a new Scene destroys all
+ * current Scene objects. We call Object.DontDestroyOnLoad to preserve an Object during level loading. -Unity Docs
+ */
 public class MusicPlayer : MonoBehaviour
 {
-    //  create the music player as a singleton
-    //  persist across scenes
 
-    private void Awake()
+    private void Awake()    //  Call the singleton method 
     {
         SetupSingleton();
     }
@@ -24,8 +26,8 @@ public class MusicPlayer : MonoBehaviour
             Destroy(gameObject);
         }
         else
-        {
-            DontDestroyOnLoad(gameObject);
+        {  
+            DontDestroyOnLoad(gameObject); 
         }
     }
 }

@@ -1,7 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/*
+ * The boundaries script keeps the player within the playing area. It's not entirely neccesary as 
+ * All the levels are enclosed as per the designer but it was specified in the brief.
+ */
 public class Boundaries : MonoBehaviour
 {
     // get the main camera

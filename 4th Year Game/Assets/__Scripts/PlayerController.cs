@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+/*
+ * The player controller script handles the player physics and logic.
+ */
 public class PlayerController : MonoBehaviour
 {
     
@@ -19,10 +21,7 @@ public class PlayerController : MonoBehaviour
     public float jumpHeight;
 
     [SerializeField]
-    private AudioSource jumpSound;
-
-    public static bool action = false;
-    
+    private AudioSource jumpSound;    
 
     void Start()
     {
@@ -64,7 +63,6 @@ public class PlayerController : MonoBehaviour
         else
         { 
             rb.velocity = new Vector2(0f, rb.velocity.y);   //  Sets player horizontal movement to 0, this prevents sliding
-
         }
     }
 

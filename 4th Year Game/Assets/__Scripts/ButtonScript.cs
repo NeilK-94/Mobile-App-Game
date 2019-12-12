@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
-
+/*
+ * The button script manages the button in scene 3. It's responsible for the insantiation of 
+ * the boxes as well as setting their color and tags.
+ */
 public class ButtonScript : MonoBehaviour
 {
     public GameObject Box;
@@ -9,6 +12,7 @@ public class ButtonScript : MonoBehaviour
 
     [SerializeField]
     private AudioSource actionSound;
+
 
     public void OnTriggerStay2D(Collider2D col)
     {

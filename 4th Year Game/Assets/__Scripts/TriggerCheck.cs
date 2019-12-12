@@ -4,6 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/*
+ * This script uses the triggerchecks in each script to see whether a box has entered them using onTriggerStay.
+ * On the last level it will set the credits panel to active
+ */
+
 public class TriggerCheck : MonoBehaviour
 {
     //public GameObject block1;
@@ -31,8 +36,7 @@ public class TriggerCheck : MonoBehaviour
     public void Update()
     {
         if(counter == 3)
-        {
-            //SceneManager.LoadScene("Menu");
+        {        
             creditsUI.SetActive(true);
             Time.timeScale = 0f;    //  Pause time
             isPaused = true;
@@ -161,11 +165,6 @@ public class TriggerCheck : MonoBehaviour
     {
         //  correct box, level1/3 complete
         platform = Instantiate(platform, spawnPointGreen.position, Quaternion.Euler(0, 0, -2));
-        //  Set boxRenderer to be the Renderer component of the instantiated box
-        //platform.transform.localScale = new Vector3(.75f, 0, 0);
-        //platRenderer = platform.GetComponent<Renderer>(); //  box.tranform
-        //platRenderer.material.color = Color.green;
-
         correctSound.Play();
     }
 }

@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+/*
+ * The Main Menu script. This either plays the game or quits the application depending on the button
+ */
 public class MainMenu : MonoBehaviour
 {
     public void PlayGame()

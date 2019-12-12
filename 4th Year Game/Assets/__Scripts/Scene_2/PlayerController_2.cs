@@ -2,7 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+/*
+ * Seperate controller scripit for the player when on scene two as we must allow for moving on both axis. 'Animation
+ * is achieved by simply flipping the players scale to the opposite of what is is, depending on where hes
+ * facing and where hes going.
+ */
 public class PlayerController_2 : MonoBehaviour
 {
 
@@ -27,10 +31,11 @@ public class PlayerController_2 : MonoBehaviour
 
     public void Move()
     {
-
+        //  Assign input to vector 2 x and y
         movement.x = Input.GetAxis("Horizontal");
         movement.y = Input.GetAxis("Vertical");
 
+        //  Actually move the player
         rb.MovePosition(rb.position + movement * moveSpeed * Time.deltaTime);
 
         if(movement.x < 0.0f)   //  Left

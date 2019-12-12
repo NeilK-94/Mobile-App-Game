@@ -3,7 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+/* 
+ * The pause menu script. This script allows the player to access the pause menu By pressing the escape key.
+ * It uses a boolean to check if the game is paused or not, then we use the Time class to pause or set the game time
+ * and the SceneManager class to load the menu scene * 
+ */
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenuUI;

@@ -1,7 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/*
+ * This controls the switch on scene1. It destroys the platform gameobect above it and sets the color of the
+ * gaeobject attached to it.
+ */
 public class SwitchController : MonoBehaviour
 {
     public Collider2D switchCollider;
